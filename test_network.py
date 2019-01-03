@@ -1,5 +1,4 @@
 
-# python test_network.py --model santa_not_santa.model --image images/examples/santa_01.png
 
 # import the necessary packages
 from keras.preprocessing.image import img_to_array
