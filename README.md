@@ -1,6 +1,6 @@
 # FaceAntispoof
-Use python test_network.py to test real and fake face live.
+Use python test.py to test real and fake face live.
 
-Use python train_network.py to train on real and fake images for creating real_fake.model.
+Use python train.py to train on real and fake images for creating real_fake.model.
 
-real_fake.model is trained on real and fake images which is used in testnetwork.py file.
+real_fake.model is trained on real and fake images which is used in test.py file.
