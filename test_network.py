@@ -1,4 +1,4 @@
-# USAGE
+
 # python test_network.py --model santa_not_santa.model --image images/examples/santa_01.png
 
 # import the necessary packages
@@ -14,7 +14,7 @@ import cv2
 import sys
 
 class WebcamVideoStream :
-    def __init__(self, src ="rtsp://admin:gepl@123@192.168.100.64:554/", width = 800, height = 640) :
+    def __init__(self, src =0, width = 800, height = 640) :
         self.stream = cv2.VideoCapture(src)
         self.stream.set(3, width)
         self.stream.set(4, height)
@@ -73,20 +73,15 @@ while True:
        scaleFactor=1.1,
        minNeighbors=5,
         minSize=(50, 50),
-        # flags=cv2.CV_HAAR_SCALE_IMAGE
     )
-    # cv2.imwrite(folder + '/' + str(count) + '.jpg',image)
-    # img = open(folder + '/' + str(count) + '.jpg', 'rb').read()
+   
 
     for (x, y, w, h) in faces:
         cv2.rectangle(image1, (x, y), (x + w, y + h), (0, 255, 0), 2)
         im = image1[y:y + h, x:x + w]
         # cv2.imwrite(folder + '/' + str(count) + '.jpg',im)
         # print (im)
-    # image = cv2.imread(str(count) + '.jpg')
-
-    # print (faces)
-    # print (type(faces))
+    
         image = cv2.resize(im, (28, 28))
         image = image.astype("float") / 255.0
         image = img_to_array(image)
@@ -117,12 +112,7 @@ while True:
                         0.7, (0, 255, 0), 2)
 
 
-        # Draw a rectangle around the faces
-
-
-
-        # output = imutils.resize(image, width=400)
-        
+        #
 
 	
 
@@ -137,41 +127,4 @@ video_capture.stop()
 cv2.destroyAllWindows()
 
 
-# construct the argument parse and parse the arguments
-#ap = argparse.ArgumentParser()
-#ap.add_argument("-m", "--model", required=True,
-#	help="path to trained model model")
-#ap.add_argument("-i", "--image", required=True,
-#	help="path to input image")
-#args = vars(ap.parse_args())
 
-# load the image
-#image = cv2.imread(args["image"])
-#orig = image.copy()
-
-# pre-process the image for classification
-#image = cv2.resize(image, (28, 28))
-#image = image.astype("float") / 255.0
-#image = img_to_array(image)
-#image = np.expand_dims(image, axis=0)
-
-# load the trained convolutional neural network
-#print("[INFO] loading network...")
-#model = load_model(args["model"])
-
-# classify the input image
-#(fake, real) = model.predict(image)[0]
-
-# build the label
-#label = "Real" if real > fake else "Fake"
-#proba = real if real > fake else fake
-#label = "{}: {:.2f}%".format(label, proba * 100)
-
-# draw the label on the image
-#output = imutils.resize(orig, width=400)
-#cv2.putText(output, label, (10, 25),  cv2.FONT_HERSHEY_SIMPLEX,
-#	0.7, (0, 255, 0), 2)
-
-# show the output image
-#cv2.imshow("Output", output)
-#cv2.waitKey(0)
