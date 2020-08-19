@@ -1,4 +1,4 @@
-# FaceAntispoof
+# FaceAntispoof model for this project
 Use python test.py to test real and fake face live.
 
 Use python train.py to train on real and fake images for creating real_fake.model.
